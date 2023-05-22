@@ -20,7 +20,7 @@
 <img src="/main/img-project/lista-jugadores.png" width="640" height="360">
 <img src="/main/img-project/lista-torneos.png" width="640" height="360">
 
-<img src="/main/img-project/newheroe.png" width="640" height="360">
+<img src="/main/img-project/new-heroe.png" width="640" height="360">
 <img src="/main/img-project/superheroes.png" width="640" height="360">
 
 
