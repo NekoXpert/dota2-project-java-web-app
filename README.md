@@ -14,7 +14,7 @@ basededatos superheroes
 <img src="/main/img-project/lista-heroes.png" width="640" height="360">
 
 
-<img src="/main/img-project/lista-jugadores.png" width="640" height="360">
+<img src="/main/img-projectlista-jugadores.png" width="640" height="360">
 <img src="/main/img-project/lista-torneos.png" width="640" height="360">
 <img src="/main/img-project/new-equipo.png" width="640" height="360">
 <img src="/main/img-project/img-projects/new-heroe.png" width="640" height="360">
