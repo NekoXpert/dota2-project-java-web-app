@@ -2,7 +2,7 @@
  Aplicacion de registros para jugadores de dota 2
 # Nekosor
 
-<img src="img-project/index.png" width="640" height="360">
+<img src="/img-project/index.png" width="640" height="360">
 
 <img src="img-project/editar-jugador.png" width="640" height="360">
 
