@@ -136,25 +136,34 @@
 <body>
 <h1>Lista de Torneos</h1>
 <table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Operaciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="torneo : ${listTorneos}">
-            <td th:text="${torneo.id}"></td>
-            <td th:text="${torneo.name}"></td>
-            <td>
-                <a th:href="@{/showFormForUpdateTorneo/{id}(id=${torneo.id})}">Update</a>
-                |
-                <a th:href="@{/deleteTorneo/{id}(id=${torneo.id})}">Delete</a>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Premio</th>
+      <th>Imagen</th>
+      <th>Operaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="torneo : ${listTorneos}">
+      <td th:text="${torneo.id}"></td>
+      <td th:text="${torneo.name}"></td>
+      <td th:text="${torneo.premio}"></td>
+      <td>
+        <img class="torneo-image" th:src="@{'/upload/' + ${torneo.id} + '/' + ${torneo.imageUrl}}" alt="Torneo Image" />
+      </td>
+      <td>
+        <a th:href="@{/showFormForUpdateTorneo/{id}(id=${torneo.id})}">Update</a>
+        |
+        <a th:href="@{/deleteTorneo/{id}(id=${torneo.id})}">Delete</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 <button><a href="/showNewTorneoForm">Agregar Torneo</a></button>
 
 <a class="btn btn-secondary" th:href="@{/}">Regresar a la lista de Jugadores</a>

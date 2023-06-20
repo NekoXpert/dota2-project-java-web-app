@@ -136,31 +136,35 @@
     <div class="container">
         <h1>Lista de Héroes</h1>
         <hr>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="heroe : ${heroes}">
-                    <td th:text="${heroe.id}"></td>
-                    <td th:text="${heroe.nameHero}"></td>
-                    <td>
-                        <img class="hero-image" th:src="@{'.upload/' + ${heroe.id} + '/' + ${heroe.image}}"
-                            alt="Hero Image" />
-                    </td>
-                    <td>
-                        <!--<a th:href="@{/showFormForUpdateHeroe/{id}(id=${heroe.id})}">Update</a>-->
-                        |
-                        <a th:href="@{/deleteHeroe/{id}(id=${heroe.id})}">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Rol</th>
+          <th>Atributo</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="heroe : ${heroes}">
+          <td th:text="${heroe.id}"></td>
+          <td th:text="${heroe.nameHero}"></td>
+          <td th:text="${heroe.rolHeroe}"></td>
+          <td th:text="${heroe.atributoHeroe}"></td>
+          <td>
+            <img class="hero-image" th:src="@{'/upload/' + ${heroe.id} + '/' + ${heroe.imageUrl}}" alt="Hero Image" />
+          </td>
+          <td>
+            <a th:href="@{/showFormForUpdateHeroe/{id}(id=${heroe.id})}">Update</a>
+            |
+            <a th:href="@{/deleteHeroe/{id}(id=${heroe.id})}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
 
         <a th:href="@{/showNewHeroeForm}" class="btn btn-primary btn-sm mb-3"> Agregar Héroe</a>
 

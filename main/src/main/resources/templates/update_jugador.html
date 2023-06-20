@@ -140,43 +140,52 @@
     <h1>Sistema de Registro para Torneos de Dota 2</h1>
     <hr>
     <h2>Editar Jugador</h2>
+<form th:object="${jugador}" th:action="@{/showFormForUpdateJugador}" method="post" enctype="multipart/form-data">
+  <input type="hidden" th:field="*{id}">
+      <input type="text" th:field="*{firstName}" placeholder="Nombre" class="form-control mb-4 col-4">
+      <input type="number" th:field="*{dniDotero}" placeholder="DNI Dotero" class="form-control mb-4 col-4">
+      <select th:field="*{medallaRank}" class="form-control mb-4 col-4">
+        <option value="">Selecciona tu Medalla</option>
+        <option th:each="medalla : ${T(com.dota2.main.model.JugadorATTR.Medalla).values()}" th:value="${medalla}"
+          th:text="${medalla}">
+        </option>
+      </select>
+      
+      
+      <input type="number" th:field="*{mmr}" placeholder="MMR" class="form-control mb-4 col-4">
+      <input type="number" th:field="*{edad}" placeholder="Edad" class="form-control mb-4 col-4">
+      
+      <select th:field="*{nacionalidad}" class="form-control mb-4 col-4">
+        <option value="">Selecciona tu pais</option>
+        <option th:each="pais : ${T(com.dota2.main.model.JugadorATTR.Pais).values()}" th:value="${pais}" th:text="${pais}">
+        </option>
+      </select>
+      
+      
+      
+      
+      
+      <input type="text" th:field="*{telefono}" placeholder="Telefono" class="form-control mb-4 col-4">
+      <input type="text" th:field="*{correo}" placeholder="Correo" class="form-control mb-4 col-4">
+      
+      <label>Heroe:</label><br />
+      <select th:field="*{heroe}">
+        <option th:each="heroe : ${listHeroes}" th:value="${heroe.id}" th:text="${heroe.nameHero}"></option>
+      </select><br />
+      <label>Equipo:</label><br />
+      <select th:field="*{equipo}">
+        <option th:each="equipo : ${listEquipos}" th:value="${equipo.id}" th:text="${equipo.name}"></option>
+      </select><br />
+      <label>Torneo:</label><br />
+      <select th:field="*{torneo}">
+        <option th:each="torneo : ${listTorneos}" th:value="${torneo.id}" th:text="${torneo.name}"></option>
+      </select><br />
+      
+     
 
-    <form th:object="${jugador}" th:action="@{/updateJugador}" method="post">
-        <input type="hidden" th:field="*{id}" />
-
-        <div class="form-group">
-            <label for="firstName">Nombre del Jugador:</label>
-            <input type="text" id="firstName" class="form-control" th:field="*{firstName}" />
-        </div>
-
-        <div class="form-group">
-            <label for="dniDotero">DNI Dotero:</label>
-            <input type="number" id="dniDotero" class="form-control" th:field="*{dniDotero}"  />
-        </div>
-
-        <div class="form-group">
-            <label for="heroe">Heroe:</label>
-            <select id="heroe" class="form-control" th:field="*{heroe}">
-                <option th:each="heroe : ${listHeroes}" th:value="${heroe.id}" th:text="${heroe.nameHero}"></option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="equipo">Equipo:</label>
-            <select id="equipo" class="form-control" th:field="*{equipo}">
-                <option th:each="equipo : ${listEquipos}" th:value="${equipo.id}" th:text="${equipo.name}"></option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="torneo">Torneo:</label>
-            <select id="torneo" class="form-control" th:field="*{torneo}">
-                <option th:each="torneo : ${listTorneos}" th:value="${torneo.id}" th:text="${torneo.name}"></option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Actualizar Datos</button>
-    </form>
+  
+  <button type="submit" class="btn btn-info col-2"> Actualizar </button>
+  </form>
 
     <hr>
 

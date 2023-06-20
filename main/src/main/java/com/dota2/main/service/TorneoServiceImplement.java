@@ -32,7 +32,7 @@ public class TorneoServiceImplement implements TorneoService {
         if (optional.isPresent()) {
             torneo = optional.get();
         } else {
-            throw new RuntimeException(" Torneo not found for id :: " + id);
+            throw new RuntimeException(" Torneo no encontrado id :: " + id);
         }
         return torneo;
     }

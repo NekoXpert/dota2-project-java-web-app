@@ -1,16 +1,21 @@
 package com.dota2.main.model;
 
 // Author: Felipe Reyes { Nekosor }
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Transient;
-import javax.persistence.JoinColumn;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
+import jakarta.persistence.JoinColumn;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.dota2.main.model.heroeATTR.Atributo;
+import com.dota2.main.model.heroeATTR.Rol;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -22,22 +27,20 @@ public class Heroe {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    
     private String nameHero;
+    @Enumerated(EnumType.STRING)
+    private Rol rolHeroe;
+    @Enumerated(EnumType.STRING)
+    private Atributo atributoHeroe;
+    private String imageUrl;
     @ManyToMany(mappedBy = "heroes")
     private Set<Torneo> torneos = new HashSet<>();
     @OneToOne
     @JoinColumn(name = "jugador_id")
     private Jugador jugador;
-
-
     
-    @Lob
-    private byte[] image;
-
-    @Transient
-    private MultipartFile imageFile;
-
+    
     public Long getId() {
         return id;
     }
@@ -48,6 +51,22 @@ public class Heroe {
 
     public String getNameHero() {
         return nameHero;
+    }
+
+    public Rol getRolHeroe() {
+        return rolHeroe;
+    }
+
+    public void setRolHeroe(Rol rolHeroe) {
+        this.rolHeroe = rolHeroe;
+    }
+
+    public Atributo getAtributoHeroe() {
+        return atributoHeroe;
+    }
+
+    public void setAtributoHeroe(Atributo atributoHeroe) {
+        this.atributoHeroe = atributoHeroe;
     }
 
     public void setNameHero(String nameHero) {
@@ -62,31 +81,36 @@ public class Heroe {
         this.jugador = jugador;
     }
 
-    public byte[] getImage() {
-        return image;
+   
+    public Set<Torneo> getTorneos() {
+        return torneos;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setTorneos(Set<Torneo> torneos) {
+        this.torneos = torneos;
     }
 
-    public MultipartFile getImageFile() {
-        return imageFile;
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageFile(MultipartFile imageFile) {
-        this.imageFile = imageFile;
-        try {
-            this.image = imageFile.getBytes();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
-
-    // Resto de la implementación de la clase Heroe
 
     @Override
-    public String toString() {
-        return "Heroe [id=" + id + ", nameHero=" + nameHero + ", jugador=" + jugador + "]";
-    }
+public String toString() {
+    return "Heroe{" +
+            "id=" + id +
+            ", nameHero='" + nameHero + '\'' +
+            ", rolHeroe='" + rolHeroe + '\'' +
+            ", atributoHeroe='" + atributoHeroe + '\'' +
+            ", imageUrl='" + imageUrl + '\'' +
+            ", torneos=" + (torneos != null ? torneos.size() : 0) +
+            ", jugador=" + (jugador != null ? jugador.getId() : null) +
+            '}';
+}
+
+  
 }

@@ -3,13 +3,12 @@ package com.dota2.main.service;
 // Author: Felipe Reyes { Nekosor }
 import com.dota2.main.model.Heroe;
 import com.dota2.main.repository.HeroeRepository;
-import com.dota2.main.util.FileUploadUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -24,16 +23,12 @@ public class HeroeServiceImplement implements HeroeService {
         return heroeRepository.findAll();
     }
 
-    @Override
-    public void saveHeroe(Heroe heroe, MultipartFile image) throws IOException {
-        if (!image.isEmpty()) {
-            String fileName = StringUtils.cleanPath(image.getOriginalFilename());
-            heroe.setImage(fileName.getBytes());
-            heroeRepository.save(heroe);
-            String uploadDir = ".heroes-images/" + heroe.getId();
-            FileUploadUtil.saveFile(fileName, image, uploadDir);
-        }
+
+     @Override
+    public  Heroe saveHeroe(Heroe heroe) {
+        return heroeRepository.save(heroe);
     }
+
 
     @Override
     public Heroe getHeroeById(long id) {
@@ -45,4 +40,6 @@ public class HeroeServiceImplement implements HeroeService {
     public void deleteHeroeById(long id) {
         heroeRepository.deleteById(id);
     }
+
+
 }

@@ -139,17 +139,34 @@
 <div class="container">
     <h1>Nuevo Héroe</h1>
     <hr>
-    <form th:action="@{/heroes}" th:object="${heroe}" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="nameHero">Nombre del Héroe</label>
-            <input type="text" id="nameHero" name="nameHero" class="form-control" th:field="*{nameHero}">
-        </div>
-        <div class="form-group">
-            <label for="image">Imagen</label>
-        <input type="file" id="image" name="newImageFile" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-info">Agregar</button>
-    </form>
+<form action="#" th:action="@{/saveHeroe}" th:object="${heroe}" method="POST" enctype="multipart/form-data">
+  <input type="text" th:field="*{nameHero}" placeholder="Nombre del Heroe" class="form-control mb-4 col-4">
+  
+  
+  
+  <select th:field="*{rolHeroe}" class="form-control mb-4 col-4">
+    <option value="">Selecciona tu Rol</option>
+    <option th:each="rol : ${T(com.dota2.main.model.heroeATTR.Rol).values()}" th:value="${rol}" th:text="${rol}">
+    </option>
+  </select>
+
+  
+  
+    <select th:field="*{atributoHeroe}" class="form-control mb-4 col-4">
+      <option value="">Selecciona el Atributo</option>
+      <option th:each="atributo : ${T(com.dota2.main.model.heroeATTR.Atributo).values()}" th:value="${atributo}" th:text="${atributo}">
+      </option>
+    </select>
+  
+  
+
+  <div>
+    <label for="image">Imagen</label>
+    <input type="file" name="image" id="image" />
+  </div>
+  <button type="submit" class="btn btn-info col-2"> Registrar </button>
+</form>
+
     
     <hr>
     

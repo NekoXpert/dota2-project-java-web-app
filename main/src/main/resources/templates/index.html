@@ -153,33 +153,53 @@
 <br>
         <a th:href="@{/showNewJugadorForm}" class="btn btn-primary btn-sm mb-3"> Agregar Jugador</a>
         <br>
-        <table border="2" class="table table-striped table-responsive-md">
-            <thead>
-                <tr>
-                    <th> Nombre del Jugador </th>
-                    
-                    <th> DNI Dotero</th>
-                    <th> Heroe</th>
-                    <th> Equipo </th>
-                    <th>Torneo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="jugador : ${listJugadores}">
-                    <td th:text="${jugador.firstName}"></td>
-                 
-                    <td th:text="${jugador.dniDotero}"></td>
-                    <td th:text="${jugador.heroe?.nameHero}"></td>
-                    <td th:text="${jugador.equipo?.name}"></td>
-                    <td th:text="${jugador.torneo?.name}"></td>
-                    <td>
-                        <a th:href="@{/showFormForUpdateJugador/{id}(id=${jugador.id})}">Update</a> |
-                        <a th:href="@{/deleteJugador/{id}(id=${jugador.id})}">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre del Jugador</th>
+              <th>Edad</th>
+              <th>Pais</th>
+              <th>DNI Dotero</th>
+              <th>Medalla</th>
+              <th>MMR</th>
+              <th>Nombre del Héroe</th>
+              <th>Rol del Héroe</th>
+              <th>Atributo del Héroe</th>
+              <th>Nombre del Equipo</th>
+              <th>Región del Equipo</th>
+              <th>Puntos de Clasificación del Equipo</th>
+              <th>Nombre del Torneo</th>
+              <th>Premio del Torneo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="jugador : ${listJugadores}">
+              <td th:text="${jugador.firstName}"></td>
+              <td th:text="${jugador.edad}"></td>
+              <td th:text="${jugador.nacionalidad}"></td>
+              <td th:text="${jugador.dniDotero}"></td>
+              <td th:text="${jugador.medallaRank}"></td>
+              <td th:text="${jugador.mmr}"></td>
+              <td th:text="${jugador.heroe?.nameHero}"></td>
+              <td th:text="${jugador.heroe?.rolHeroe}"></td>
+              <td th:text="${jugador.heroe?.atributoHeroe}"></td>
+              <td th:text="${jugador.equipo?.name}"></td>
+              <td th:text="${jugador.equipo?.region}"></td>
+              <td th:text="${jugador.equipo?.puntosClasificacion}"></td>
+              <td th:text="${jugador.torneo?.name}"></td>
+              <td th:text="${jugador.torneo?.premio}"></td>
+              <td>
+                <a class="btn btn-primary btn-sm" th:href="@{/showFormForUpdateJugador/{id}(id=${jugador.id})}">Update</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/deleteJugador/{id}(id=${jugador.id})}">Delete</a>
+              </td>
+            </tr>
+          </tbody>
         </table>
+      </div>
+
+
     </div>
 
 

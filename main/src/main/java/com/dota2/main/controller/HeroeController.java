@@ -1,23 +1,41 @@
 // Author: Felipe Reyes { Nekosor }
 package com.dota2.main.controller;
 
+import com.dota2.main.model.Equipo;
 import com.dota2.main.model.Heroe;
+import com.dota2.main.model.Jugador;
+import com.dota2.main.model.Torneo;
+import com.dota2.main.service.AlmacenamientoService;
 import com.dota2.main.service.HeroeService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
-
 @Controller
 public class HeroeController {
 
     @Autowired
     private HeroeService heroeService;
+    @Autowired
+    private AlmacenamientoService almacenamientoService;
+
+
+ @PostMapping("/heroes/{id}/image")
+    public ResponseEntity<String> uploadImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
+        Heroe heroe = heroeService.getHeroeById(id);
+        String imageUrl = almacenamientoService.store(file);
+        heroe.setImageUrl(imageUrl);
+        heroeService.saveHeroe(heroe);
+        return ResponseEntity.ok().body("Imagen cargada con éxito: " + imageUrl);
+    }
+
 
     @GetMapping("/heroes")
     public String showHeroes(Model model) {
@@ -25,32 +43,16 @@ public class HeroeController {
         return "heroes";
     }
 
-   /*
-    * @GetMapping("/showFormForUpdateHeroe/{id}")
-    * public String showFormForUpdate(@PathVariable(value = "id") long id, Model
-    * model) {
-    * Heroe heroe = heroeService.getHeroeById(id);
-    * model.addAttribute("heroe", heroe);
-    * return "update_heroe";
-    * }
-    */
-
-    @PostMapping("/heroes")
-    public String saveHeroe(@ModelAttribute("heroe") Heroe heroe,
-            BindingResult bindingResult,
-            @RequestParam("newImageFile") MultipartFile newImageFile) {
-        if (bindingResult.hasErrors()) {
-            return "new_heroe";
-        }
-        try {
-            heroe.setImageFile(newImageFile);
-            heroeService.saveHeroe(heroe, newImageFile);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "new_heroe";
-        }
-        return "redirect:/heroes";
+   @PostMapping("/saveHeroe")
+public String saveHeroe(@ModelAttribute Heroe heroe, @RequestParam("image") MultipartFile file, Model model) {
+    if (!file.isEmpty()) {
+        String imageUrl = almacenamientoService.store(file);
+        heroe.setImageUrl(imageUrl);
     }
+  heroeService.saveHeroe(heroe);
+
+    return "redirect:/heroes";
+}
 
     @GetMapping("/deleteHeroe/{id}")
     public String deleteHeroe(@PathVariable(value = "id") long id) {
@@ -64,6 +66,7 @@ public class HeroeController {
         model.addAttribute("heroe", heroe);
         return "update_heroe";
     }
+
     @GetMapping("/showNewHeroeForm")
     public String showNewHeroeForm(Model model) {
         Heroe heroe = new Heroe();

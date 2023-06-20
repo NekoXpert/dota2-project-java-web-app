@@ -136,23 +136,29 @@
 <div class="container">
     <h1>Actualizar Héroe</h1>
     <hr>
-    <form action="#" th:action="@{/heroes/update/{id}(id=${heroe.id})}" method="POST">
-        <input type="hidden" name="id" th:value="${heroe.id}">
-        <div class="form-group">
-            <label for="nameHero">Nombre del Héroe</label>
-            <input type="text" id="nameHero" name="nameHero" class="form-control" th:value="${heroe.nameHero}">
-        </div>
-     <!--  <div class="form-group">
-            <label for="image">Imagen actual</label>
-            <img th:src="@{'/upload/' + ${heroe.id} + '/' + ${heroe.imageFile}}" alt="Imagen del Héroe" width="100" height="100">
-        </div> -->
-        <div class="form-group">
-            <label for="newImage">Nueva imagen</label>
-            <input type="file" id="image" name="newImageFile" class="form-control">
-        </div>
+    <form th:object="${heroe}" th:action="@{/showFormForUpdate}" method="post" enctype="multipart/form-data">
+      <input type="hidden" th:field="*{id}">
+      <input type="text" th:field="*{nameHero}" placeholder="Nombre del Heroe" class="form-control mb-4 col-4">
+      <select th:field="*{rolHeroe}" class="form-control mb-4 col-4">
+        <option value="">Selecciona tu Rol</option>
+        <option th:each="rol : ${T(com.dota2.main.model.heroeATTR.Rol).values()}" th:value="${rol}" th:text="${rol}">
+        </option>
+      </select>
+      
+      
+      
+      <select th:field="*{atributoHeroe}" class="form-control mb-4 col-4">
+        <option value="">Selecciona el Atributo</option>
+        <option th:each="atributo : ${T(com.dota2.main.model.heroeATTR.Atributo).values()}" th:value="${atributo}"
+          th:text="${atributo}">
+        </option>
+      </select> <div>
+        <label for="image">Imagen</label>
+      <input type="file" name="image" id="image" />
+      </div>
+      <button type="submit" class="btn btn-info col-2"> Registrar </button>
+      </form>
 
-        <button type="submit" class="btn btn-info">Actualizar</button>
-    </form>
 
     <hr>
 

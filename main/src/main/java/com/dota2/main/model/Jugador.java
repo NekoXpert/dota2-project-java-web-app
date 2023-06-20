@@ -1,15 +1,20 @@
 package com.dota2.main.model;
 
-// Author: Felipe Reyes { Nekosor }
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.dota2.main.model.JugadorATTR.Medalla;
+import com.dota2.main.model.JugadorATTR.Pais;
 
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
+// Author: Felipe Reyes { Nekosor }
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 ;
 
 @Entity
@@ -24,8 +29,15 @@ public class Jugador {
     private String firstName;
     @Column(name = "dni_Dotero")
     private Integer dniDotero;
-    @Column(name = "heroe_Name")
-    private String heroName;
+    @Enumerated(EnumType.STRING)
+    private Medalla medallaRank;
+    private Integer mmr;
+    private Integer edad;
+    @Enumerated(EnumType.STRING)
+    private Pais nacionalidad;
+    private String telefono;
+    private String correo;
+    private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "equipo_id")
     private Equipo equipo;
@@ -46,12 +58,71 @@ public class Jugador {
         this.id = id;
     }
 
+    public Medalla getMedallaRank() {
+        return medallaRank;
+    }
+
+    public void setMedallaRank(Medalla medallaRank) {
+        this.medallaRank = medallaRank;
+    }
+
+    public Pais getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(Pais nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+
+    public Integer getMmr() {
+        return mmr;
+    }
+
+    public void setMmr(Integer mmr) {
+        this.mmr = mmr;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public Integer getDniDotero() {
@@ -62,13 +133,7 @@ public class Jugador {
         this.dniDotero = dniDotero;
     }
 
-    public String getHeroName() {
-        return heroName;
-    }
-
-    public void setHeroName(String heroName) {
-        this.heroName = heroName;
-    }
+  
 
     public Equipo getEquipo() {
         return equipo;
@@ -93,4 +158,26 @@ public class Jugador {
     public void setHeroe(Heroe heroe) {
         this.heroe = heroe;
     }
+
+  
+
+  @Override
+public String toString() {
+    return "Jugador{" +
+            "id=" + id +
+            ", firstName='" + firstName + '\'' +
+            ", dniDotero='" + dniDotero + '\'' +
+            ", medallaRank='" + medallaRank + '\'' +
+            ", mmr=" + mmr +
+            ", edad=" + edad +
+            ", nacionalidad='" + nacionalidad + '\'' +
+            ", telefono='" + telefono + '\'' +
+            ", correo='" + correo + '\'' +
+            ", imageUrl='" + imageUrl + '\'' +
+            ", equipo=" + (equipo != null ? equipo.getId() : null) +
+            ", torneo=" + (torneo != null ? torneo.getId() : null) +
+            ", heroe=" + (heroe != null ? heroe.getId() : null) +
+            '}';
+}
+
 }

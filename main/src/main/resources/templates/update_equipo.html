@@ -135,11 +135,32 @@
 <body>
     <div class="container">
         <h2> Actualizar Equipo </h2>
-        <form action="#" th:action="@{/saveEquipo}" th:object="${equipo}" method="POST">
-            <input type="hidden" th:field="*{id}" />
-            <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
-            <button type="submit" class="btn btn-info col-2"> Actualizar Equipo </button>
-        </form>
+      <form th:object="${equipo}" th:action="@{/showFormForUpdateEquipo}" method="post" >
+        <input type="hidden" th:field="*{id}">
+        <label>Nombre:</label><br>
+        <input th:field="*{name}" class="form-control mb-4 col-4"><br>
+       
+
+  
+        <label>Región:</label><br>
+      <select th:field="*{region}" class="form-control mb-4 col-4">
+        <option value="">Selecciona tu Región</option>
+        <option th:each="zona : ${T(com.dota2.main.model.EquipoATTR.Zona).values()}" th:value="${zona}" th:text="${zona}">
+        </option>
+      </select><br>
+    <select th:field="*{puntosClasificacion}" class="form-control mb-4 col-4">
+      <option value="">Selecciona tus Puntos</option>
+      <option th:each="dpc : ${T(com.dota2.main.model.EquipoATTR.DPC).values()}" th:value="${dpc}" th:text="${dpc}">
+      </option>
+    </select>
+<div>
+  <label for="image">Imagen</label>
+  <input type="file" name="image" id="image" />
+</div>
+       
+        <button type="submit" class="btn btn-info col-2"> Actualizar Equipo </button>
+      </form>
+
         <hr>
         <a th:href="@{/equipos}"> Regresar a la lista de Equipos </a>
     </div>

@@ -136,25 +136,35 @@
 <body>
 <h1>Lista de Equipos</h1>
 <table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Operaciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="equipo : ${listEquipos}">
-            <td th:text="${equipo.id}"></td>
-            <td th:text="${equipo.name}"></td>
-            <td>
-                <a th:href="@{/showFormForUpdateEquipo/{id}(id=${equipo.id})}">Update</a>
-                |
-                <a th:href="@{/deleteEquipo/{id}(id=${equipo.id})}">Delete</a>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Fecha de Creación</th>
+      <th>Región</th>
+      <th>Puntos de Clasificación</th>
+      <th>Imagen</th>
+      <th>Operaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="equipo : ${listEquipos}">
+      <td th:text="${equipo.id}"></td>
+      <td th:text="${equipo.name}"></td>
+      <td th:text="${equipo.region}"></td>
+      <td th:text="${equipo.puntosClasificacion}"></td>
+      <td>
+        <img class="equipo-image" th:src="@{'/upload/' + ${equipo.id} + '/' + ${equipo.imageUrl}}" alt="Equipo Image" />
+      </td>
+      <td>
+        <a th:href="@{/showFormForUpdateEquipo/{id}(id=${equipo.id})}">Update</a>
+        |
+        <a th:href="@{/deleteEquipo/{id}(id=${equipo.id})}">Delete</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 <button><a href="/showNewEquipoForm">Agregar Equipo</a></button>
 
 <a class="btn btn-secondary" th:href="@{/}">Regresar a la lista de Jugadores</a>
