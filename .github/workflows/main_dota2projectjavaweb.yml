@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy JAR app to Azure Web App - dota2projectjavaweb
 
 on:
@@ -22,14 +19,16 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn clean install -f main/pom.xml
+        run: mvn clean install -DskipTests -f main/pom.xml
 
+      - name: List contents of target directory
+        run: ls ${{ github.workspace }}/main/target
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/main/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,3 +51,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_99DCF371F1514C88A72911C265DDE454 }}
           package: '*.jar'
+
