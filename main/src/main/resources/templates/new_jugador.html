@@ -4,178 +4,268 @@
 <head>
   <title>Sistema de Registro para Torneos de Dota 2</title>
   <link rel="stylesheet" th:href="@{css/styles.css}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
- <style>/* Estilos generales */
-body {
-  background-color: #181818;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+ <style>body {
+  
+    background-color: #f2f2f2;
+
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+   
 }
 
-h1, h2, h3 {
-  text-align: center;
-}
-
-hr {
-  border-color: #ffffff;
-}
-
-/* Estilos de formulario */
-.form-control {
-  border-radius: 5px;
-  padding: 10px;
+.card {
+    display: grid;
   
-  font-size: 16px;
-  border: 1px solid #cccccc;
-  background-color: #077be755;
-  color: #ffffff;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap:2em;
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
 }
 
-.form-control:focus {
-  outline: none;
-  border-color: #ff6600;
+.cardMenu {display:flex;
+  justify-content: center;
+      margin-right: 1em;
+    margin-left:1em;
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+max-width:900px;
+
+
+    color: #fff;
 }
 
-select.form-control {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('dropdown-arrow.png');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  padding-right: 30px;
+.cardTitulo {display:flex;
+  justify-content: center;
+      
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+max-width:900px;
+padding:0.3em;
+
+    color: #fff;
+}
+.card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    color: #ff8c00; 
 }
 
-select.form-control option {
-  background-color: #063866d4;
-  color: #ffffff;
-
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-input[type="file"] {
-  margin-top: 10px;
-  color: #ffffff;
+.card strong {
+    font-weight: bold;
+    color: #ff0000;
 }
 
-/* Estilos de botón */
-.btn {
+.card a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #f9c700; 
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.card .btn:hover {
+    background-color: #f9c700; 
+}
+
+.card .btn-primary {
+    background-color: #ff8c00; 
+    color: #fff;
+}
+
+.card .btn-primary:hover {
+    background-color: #e67600; 
+}
+
+.card .btn-secondary {
+    background-color: #ff0000; 
+    color: #fff;
+}
+
+.card .btn-secondary:hover {
+    background-color: #cc0000; 
+}
+.navbar {
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 10px;
+   
+}
+
+.navbar a {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 1em;
+    margin-left:1em;
+    color:black;
+    font-weight: 900;
+}
+
+.navbar a:hover {
+
+      background-color: #e67600; 
+  color:white;
+  font-weight: 900;
+  transform: scale(1.1);
+}
+.button {
   display: inline-block;
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  background-color: #fcd116; 
+  color: #000;
+  font-weight: 900;
   text-decoration: none;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
-  transition: background-color 0.3s;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-  opacity: 0.8;
+.button:hover {
+  background-color: #e67600; 
+  color:white;
+  font-weight: 900;
+  transform: scale(1.1);
 }
 
-.btn-info {
-  background-color: #ff6600;
+@media (max-width: 767px) {
+    .card {
+        padding: 15px;
+    }
+    .navbar{ 
+    display:flex;
+    flex-direction:column;
+   }
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .card a,
+    .card .btn {
+        font-size: 12px;
+    }
+    .menuparacel{
+
+      margin-top:1em
+    }
+}
+::placeholder{
+  color:white;
+  font-weight: 900;
 }
 
-.btn-info:hover {
-  background-color: #d94d00;
+select {
+  background-color: rgba(0, 0, 0, 0.645); 
+  color: #ffffff; 
+  border: none;
+  padding: 5px 10px; 
+  border-radius: 5px; 
 }
 
-/* Estilos adicionales */
-.mb-4 {
-  margin-bottom: 20px;
-}
-
-.col-4 {
-  width: 100%;
-}
-
-/* Estilos responsivos */
-@media screen and (max-width: 767px) {
-  .container {
-    padding: 10px;
-  }
-
-  .col-4 {
-    width: 100%;
-  }
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"] {
+  background-color: rgba(0, 0, 0, 0.793); 
+  color: #fff;
+  border: none;
+  padding: 5px 10px; 
+  border-radius: 5px;
 }
 </style>
-<br> <br>
- <style></style>
 <body>
   <div class="container">
-    <h1> Sistema de Registro para Torneos de Dota 2</h1>
+    <h1 class="cardTitulo">Sistema de Registro para Torneos de Dota 2</h1>
     <hr>
-    <h3> Nuevo Jugador </h3>
-
-    <form action="#" th:action="@{/saveJugador}" th:object="${jugador}" method="POST" enctype="multipart/form-data">
-      <input type="text" th:field="*{firstName}" minlength="3" placeholder="Nombre" class="form-control mb-4 col-4" required>
-      <input type="number" th:field="*{dniDotero}" minlength="8"  placeholder="DNI Dotero" class="form-control mb-4 col-4" required>
-      <select th:field="*{medallaRank}" class="form-control mb-4 col-4">
+    <h3 class="cardTitulo">Nuevo Jugador</h3>
+    <form action="#" th:action="@{/saveJugador}" th:object="${jugador}" method="POST" enctype="multipart/form-data"
+      class="card">
+      <input type="text" th:field="*{firstName}" minlength="3" placeholder="Nombre" required>
+      <input type="number" th:field="*{dniDotero}" minlength="8" placeholder="DNI Dotero" required>
+      <select th:field="*{medallaRank}">
         <option value="">Selecciona tu Medalla</option>
         <option th:each="medalla : ${T(com.dota2.main.model.JugadorATTR.Medalla).values()}" th:value="${medalla}"
-          th:text="${medalla}">
-        </option>
+          th:text="${medalla}"></option>
       </select>
-
-
-      <input type="number" th:field="*{mmr}" minlength="3"   placeholder="MMR" class="form-control mb-4 col-4" required>
-      <input type="number" th:field="*{edad}" maxlength="3"   placeholder="Edad" class="form-control mb-4 col-4" required>
-      
-<select th:field="*{nacionalidad}" class="form-control mb-4 col-4">
-  <option value="">Selecciona tu pais</option>
-  <option th:each="pais : ${T(com.dota2.main.model.JugadorATTR.Pais).values()}" th:value="${pais}"
-    th:text="${pais}">
-  </option>
-</select>
-
-
-
-
-
-      <input type="tel" th:field="*{telefono}" placeholder="+51 900222331" pattern="^\+[0-9]{2}[0-9]{9}$" class="form-control mb-4 col-4" required>
-      <input type="email" th:field="*{correo}" placeholder="Correo" class="form-control mb-4 col-4" required>
-
+      <input type="number" th:field="*{mmr}" minlength="3" placeholder="MMR" required>
+      <input type="number" th:field="*{edad}" maxlength="3" placeholder="Edad" required>
+      <select th:field="*{nacionalidad}">
+        <option value="">Selecciona tu pais</option>
+        <option th:each="pais : ${T(com.dota2.main.model.JugadorATTR.Pais).values()}" th:value="${pais}"
+          th:text="${pais}"></option>
+      </select>
+      <input type="tel" th:field="*{telefono}" placeholder="+51 900222331" pattern="^\+[0-9]{2}[0-9]{9}$" required>
+      <input type="email" th:field="*{correo}" placeholder="Correo" required>
       <label>Heroe:</label><br />
-      <select class="form-control mb-4 col-4" th:field="*{heroe}">
+      <select th:field="*{heroe}">
         <option th:each="heroe : ${listHeroes}" th:value="${heroe.id}" th:text="${heroe.nameHero}"></option>
       </select><br />
       <label>Equipo:</label><br />
-      <select class="form-control mb-4 col-4" th:field="*{equipo}">
+      <select th:field="*{equipo}">
         <option th:each="equipo : ${listEquipos}" th:value="${equipo.id}" th:text="${equipo.name}"></option>
       </select><br />
       <label>Torneo:</label><br />
-      <select class="form-control mb-4 col-4" th:field="*{torneo}">
+      <select th:field="*{torneo}">
         <option th:each="torneo : ${listTorneos}" th:value="${torneo.id}" th:text="${torneo.name}"></option>
       </select><br />
-
       <div>
         <label for="image">Imagen</label>
         <input type="file" name="image" id="image" />
       </div>
-<br>
-<br>
-      <button type="submit" class="btn btn-info col-2"> Registrar </button>
+      <br>
+      <br>
+      <button type="submit" class="btn-primary">Registrar</button>
     </form>
-
     <hr>
-
-    <a class="btn success" th:href="@{/}"> Regresar a la lista de Jugadores </a>
-
+    <a th:href="@{/}" class="button">Regresar a la lista de Jugadores</a>
   </div>
-
 </body>
+
+
 
 </html>

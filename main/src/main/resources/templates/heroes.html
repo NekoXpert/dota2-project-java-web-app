@@ -4,181 +4,223 @@
 <head>
     <title>Sistema de Registro para Torneos de Dota 2</title>
     <link rel="stylesheet" th:href="@{css/styles.css}">
-    </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
 <br> <br>
 <style>
- /* Estilos generales */
-body {
-  background-color: #181818;
-  color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-.hero-image {
-  max-width: 150px;
-  max-height: 150px;
+ body {
+  
+    background-color: #f2f2f2;
+
 }
 
-/* Estilos de botón */
-.btn {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+   
+}
+
+.card {
+    display: grid;
+  
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap:2em;
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cardMenu {display:flex;
+  justify-content: center;
+      margin-right: 1em;
+    margin-left:1em;
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+max-width:900px;
+
+
+    color: #fff;
+}
+
+.cardTitulo {display:flex;
+  justify-content: center;
+      
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+max-width:900px;
+padding:0.3em;
+
+    color: #fff;
+}
+.card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    color: #ff8c00; 
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card strong {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.card a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #f9c700; 
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.card .btn:hover {
+    background-color: #f9c700; 
+}
+
+.card .btn-primary {
+    background-color: #ff8c00; 
+    color: #fff;
+}
+
+.card .btn-primary:hover {
+    background-color: #e67600; 
+}
+
+.card .btn-secondary {
+    background-color: #ff0000; 
+    color: #fff;
+}
+
+.card .btn-secondary:hover {
+    background-color: #cc0000; 
+}
+.navbar {
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 10px;
+   
+}
+
+.navbar a {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 1em;
+    margin-left:1em;
+    color:black;
+    font-weight: 900;
+}
+
+.navbar a:hover {
+
+      background-color: #e67600; 
+  color:white;
+  font-weight: 900;
+  transform: scale(1.1);
+}
+.button {
   display: inline-block;
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  background-color: #fcd116; 
+  color: #000;
+  font-weight: 900;
   text-decoration: none;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  opacity: 0.8;
-}
-
-.btn-primary {
-  background-color: #d94d00;
-}
-
-.btn-primary:hover {
-  background-color: #b13a00;
-}
-
-.btn-secondary {
-  background-color: #ff6600;
-}
-
-.btn-secondary:hover {
-  background-color: #d94d00;
-}
-
-/* Estilos adicionales */
-.mb-3 {
-  margin-bottom: 10px;
-}
-
-
- .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .hero-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-card {
-        
-            background: linear-gradient(315deg, #fb5800 0%, #4d009a 74%) ;
-            box-shadow: 0 5 10px rgba(0, 0, 0, 0.587);
-            border-radius: 10px;
-            padding: 20px;
-            width: 200px;
-            text-align: center;
-            
-        }
- .hero-card:hover {
-            background-color: #ffffff;
-            box-shadow: 0 5 10px rgba(0, 0, 0, 0.587);
-            border-radius: 10px;
-            padding: 20px;
-            width: 200px;
-            text-align: center;
-            transform: (scale(1.5));
-        }
-        .hero-image img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-.btn{
-
-  background-color: #d94d00;
   border-radius: 5px;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #ffffff;
-  margin-top: 2em;
-  transition: background-color 0.3s;
-
-
-
+  transition: background-color 0.3s ease;
 }
-        .hero-details h2 {
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
 
-        .hero-actions {
-            margin-top: 10px;
-        }
+.button:hover {
+  background-color: #e67600; 
+  color:white;
+  font-weight: 900;
+  transform: scale(1.1);
+}
 
-        .hero-actions a {
-            display: inline-block;
-            color: #d94d00;
-            background-color: #ffffff;
-            border-radius: 5px;
-            padding: 5px 10px;
-            text-decoration: none;
-          
-        }
+@media (max-width: 767px) {
+    .card {
+        padding: 15px;
+    }
+    .navbar{ 
+    display:flex;
+    flex-direction:column;
+   }
+    .card h3 {
+        font-size: 20px;
+    }
 
-        .hero-actions a:hover {
-            background-color: #dcdcdc;
-            transform: (scaleX(1.5));
-          transition: background-color 0.3s;
-        }
+    .card p {
+        font-size: 14px;
+    }
 
-        .btn-secondary {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
+    .card a,
+    .card .btn {
+        font-size: 12px;
+    }
+    .menuparacel{
+
+      margin-top:1em
+    }
+}
 </style>
 <body>
   <div class="container">
-    <h1>LISTA DE HEROES</h1>
- 
-
-    <div class="hero-list">
-      <div th:each="heroe : ${heroes}" class="hero-card">
-        <div class="hero-image">
+    <h1 class="cardTitulo">LISTA DE HEROES</h1>
+    <div class="card">
+      <div th:each="heroe : ${heroes}" class="card">
+        <div>
           <img th:src="@{'/upload/' + ${heroe.id} + '/' + ${heroe.imageUrl}}" alt="Hero Image" />
         </div>
-        <div class="hero-details">
+        <div>
           <h2 th:text="${heroe.nameHero}"></h2>
           <p>Rol: <span th:text="${heroe.rolHeroe}"></span></p>
           <p>Atributo: <span th:text="${heroe.atributoHeroe}"></span></p>
         </div>
-        <div class="hero-actions">
-          <a th:href="@{/showFormForUpdateHeroe/{id}(id=${heroe.id})}">Update</a>
-          |
-          <a th:href="@{/deleteHeroe/{id}(id=${heroe.id})}">Delete</a>
+        <div>
+          <a th:href="@{/showFormForUpdateHeroe/{id}(id=${heroe.id})}" class="btn-primary">Update</a>
+          <a th:href="@{/deleteHeroe/{id}(id=${heroe.id})}" class="btn-secondary">Delete</a>
         </div>
       </div>
     </div>
-
-    <a th:href="@{/showNewHeroeForm}" class="btn btn-primary btn-sm mb-3">Agregar Héroe</a>
-
+    <a th:href="@{/showNewHeroeForm}" class="button">Agregar Héroe</a>
     <hr>
-
-    <a class="btn btn-secondary" th:href="@{/}">Regresar a la lista de Jugadores</a>
+    <a th:href="@{/}" class="button">Regresar a la lista de Jugadores</a>
   </div>
 </body>
+
 
 
 </html>

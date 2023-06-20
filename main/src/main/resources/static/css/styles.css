@@ -3,257 +3,28 @@
 
 *{
 
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 
     
 }
 
-body {background-image: url("https://i.postimg.cc/tRLvpdM3/wallpaperflare-com-wallpaper-1.jpg") !important;
+body {
+    background-image: url("https://i.postimg.cc/tRLvpdM3/wallpaperflare-com-wallpaper-1.jpg") !important;
     background-image: linear-gradient(to bottom, #0c0c0c, #3c3c3c);
+    background-repeat: no-repeat;
+    background-size:165%;
+    background-position: center;
     color: #ffffff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-        padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
 }
 
-    
+h1  
+{ color:white;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    text-align: center;
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    h1,
-    h2,
-    h3 {
-        text-align: center;
-    }
-
-    hr {
-        border-color: #ffffff;
-    }
-
-    /* Estilos de tabla */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    table th,
-    table td {
-        padding: 10px;
-        text-align: left;
-    }
-
-    table th {
-        background-color: #444444;
-        color: #ffffff;
-    }
-
-    table tr:nth-child(even) {
-        background-color: #333333;
-    }
-
-    /* Estilos de botones */
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffffff;
-        transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-        opacity: 0.8;
-    }
-
-    .btn-primary {
-        background-color: #ff6600;
-    }
-
-    .btn-primary:hover {
-        background-color: #d94d00;
-    }
-
-    .btn-danger {
-        background-color: #cc0000;
-    }
-
-    .btn-danger:hover {
-        background-color: #a30000;
-    }
-
-    .btn-success {
-        background-color: #00cc00;
-    }
-
-    .btn-success:hover {
-        background-color: #00a300;
-    }
-
-    .btn-info {
-        background-color: #0099ff;
-    }
-
-    .btn-info:hover {
-        background-color: #007acc;
-    }
-
-    .btn-warning {
-        background-color: #ffcc00;
-    }
-
-    .btn-warning:hover {
-        background-color: #e6b800;
-    }
-
-    .btn-secondary {
-        background-color: #666666;
-    }
-
-    .btn-secondary:hover {
-        background-color: #4d4d4d;
-    }
-
-    .btn-sm {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-
-    .btn-block {
-        display: block;
-        width: 100%;
-    }
-
-    /* Estilos de imágenes */
-    .equipo-image,
-    .hero-image {
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-
-    /* Estilos adicionales */
-    .row {
-        margin-bottom: 20px;
-    }
-
-    .mb-3 {
-        margin-bottom: 15px;
-    }
-
-    .col-sm-4 {
-        text-align: center;
-    }
-
-    /* Estilos responsivos */
-    @media screen and (max-width: 767px) {
-        table {
-            display: block;
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        table th,
-        table td {
-            font-size: 12px;
-            white-space: nowrap;
-            text-align: left;
-        }
-
-        table td::before {
-            content: attr(data-label);
-            float: left;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        table th,
-        table td {
-            display: block;
-            padding: 5px;
-        }
-
-        table tbody {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        table tbody tr {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .btn-block {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    }
-
-        /* Estilos de botón lista */
-        .btnlista {
-            display: inline-block;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            transition: background-color 0.3s;
-        }
-    
-        .btnlista:hover {
-            opacity: 0.8;
-        }
-    
-        .btn-rojo {
-            background-color: #ff0000;
-        }
-    
-        .btn-verde {
-            background-color: #00ff00;
-        }
-    
-        .btn-celeste {
-            background-color: #00ffff;
-        }
-    
-        .btn-amarillo {
-            background-color: #ffff00;
-        }
-    
-        .btn-naranja {
-            background-color: #ff6600;
-        }
-    
-        .btn-rojo:hover {
-            background-color: #cc0000;
-        }
-    
-        .btn-verde:hover {
-            background-color: #00cc00;
-        }
-    
-        .btn-celeste:hover {
-            background-color: #00cccc;
-        }
-    
-        .btn-amarillo:hover {
-            background-color: #cccc00;
-        }
-    
-        .btn-naranja:hover {
-            background-color: #d94d00;
-        }
+}

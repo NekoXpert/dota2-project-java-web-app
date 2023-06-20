@@ -5,112 +5,219 @@
     <title>Sistema de Registro para Torneos de Dota 2</title>
 
 <link rel="stylesheet" th:href="@{css/styles.css}">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
-      .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+ body {
+  
+    background-color: #f2f2f2;
 
-        h1 {
-            text-align: center;
-        }
-
-        .btnlista {
-            display: block;
-         
-            width: 100%;
-            text-align: center;
-            margin-bottom: 10px;
-            color: #fff;
-            background-color: #337ab7;
-            border-radius: 5px;
-            padding: 5px 10px;
-            text-decoration: none;
-
-        }
-
-.actions{
-  display:flex;
-  justify-content:space-evenly;
-  margin:1em;
- 
 }
 
-        .btnlista:hover {
-            background-color: #286090;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+   
+}
 
-        .player-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-        }
+.card {
+    display: grid;
+  
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap:2em;
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+}
 
-        .player-card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            font-size:1em;
-            background-color: #077be725;
-            background-image: url("./img/mesh-527.png");
-        }
+.cardMenu {display:flex;
+  justify-content: center;
+      margin-right: 1em;
+    margin-left:1em;
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+max-width:900px;
 
-        .player-card h3 {
-            margin-top: 0;
-        }
 
-        .player-card img {
-            width: 100%;
-            max-height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+    color: #fff;
+}
 
-        .player-card .actions {
-            margin-top: 10px;
-        }
+.cardTitulo {display:flex;
+  justify-content: center;
+      
+    background-color: rgba(0, 0, 0, 0.457);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+max-width:900px;
+padding:0.3em;
 
-        .player-card .actions a {
-            margin-right: 5px;
-        }
+    color: #fff;
+}
+.card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    color: #ff8c00; 
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card strong {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.card a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #f9c700; 
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.card .btn:hover {
+    background-color: #f9c700; 
+}
+
+.card .btn-primary {
+    background-color: #ff8c00; 
+    color: #fff;
+}
+
+.card .btn-primary:hover {
+    background-color: #e67600; 
+}
+
+.card .btn-secondary {
+    background-color: #ff0000; 
+    color: #fff;
+}
+
+.card .btn-secondary:hover {
+    background-color: #cc0000; 
+}
+.navbar {
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 10px;
+   
+}
+
+.navbar a {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #fcd116; 
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 1em;
+    margin-left:1em;
+    color:black;
+    font-weight: 900;
+}
+
+.navbar a:hover {
+
+      background-color: #e67600; 
+  color:white;
+  font-weight: 900;
+  transform: scale(1.1);
+}
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fcd116; 
+  color: #000;
+  font-weight: 900;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e67600; 
+  color:white;
+  font-weight: 900;
+  transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+    .card {
+        padding: 15px;
+    }
+    .navbar{ 
+    display:flex;
+    flex-direction:column;
+   }
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .card a,
+    .card .btn {
+        font-size: 12px;
+    }
+    .menuparacel{
+
+      margin-top:1em
+    }
+}
+
 </style>
 
     </head>
 <br> <br>
 <body>
-  <div class="container my-2">
-    <h1>Lista de Jugadores</h1>
+  <div class="container">
+    <h1 class="cardTitulo"> LISTA DE JUGADORES </h1>
     <hr>
-    <div class="row">
-      <div class="col-sm-4">
-        <a class="btnlista" th:href="@{/equipos}">Lista de Equipos</a>
-      </div>
-      <div class="col-sm-4">
-        <a class="btnlista" th:href="@{/torneos}">Lista de Torneos</a>
-      </div>
-      <div class="col-sm-4">
-        <a class="btnlista" th:href="@{/heroes}">Lista de Héroes</a>
+    <div class="cardMenu">
+      <div class="navbar" >
+        <a  class="menuparacel" href="/equipos">Lista de Equipos</a>
+        <a class="menuparacel" href="/torneos">Lista de Torneos</a>
+        <a class="menuparacel" href="/heroes">Lista de Héroes</a>
       </div>
     </div>
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="none" viewBox="0 0 51 42">
-  <path fill="url(&quot;#SvgjsLinearGradient1011&quot;)"
-    d="M50.1 31.9c0 .5-3.1.5-3.3 1-.2.5 2.3 2.4 2 2.8-.3.4-2.9-1.3-3.3-.9-.4.3.7 3.3.2 3.5-3.2 1.1-7.2-1-10.5-.4s-6.4 3.9-9.7 3.9c-3.3 0-6.4-3.4-9.7-3.9-3.3-.6-7.3 1.6-10.5.4-.5-.2.6-3.1.2-3.5-.4-.3-3 1.3-3.3.9-.3-.4 2.2-2.3 2-2.8-.2-.5-3.3-.5-3.3-1 0-1.8 3.1-3.5 3.1-5.3C4 24.8.9 23.1.9 21.3.9 19.5 4 17.8 4 16 4 14.2.9 12.5.9 10.7c0-.5 3.1-.5 3.3-1 .2-.5-2.3-2.4-2-2.8.3-.4 2.9 1.3 3.3.9.4-.3-.7-3.3-.2-3.5 3.2-1.1 7.2 1 10.5.4S22.2.8 25.5.8c3.3 0 6.4 3.4 9.7 3.9 3.3.6 7.3-1.6 10.5-.4.5.2-.6 3.1-.2 3.5.4.3 3-1.3 3.3-.9.3.4-2.2 2.3-2 2.8.2.5 3.3.5 3.3 1 0 1.8-3.1 3.5-3.1 5.3 0 1.8 3.1 3.5 3.1 5.3 0 1.8-3.1 3.5-3.1 5.3 0 1.8 3.1 3.6 3.1 5.3Z">
-  </path>
-  <defs>
-    <linearGradient id="SvgjsLinearGradient1011">
-      <stop stop-color="#a8edea" offset="0"></stop>
-      <stop stop-color="#fed6e3" offset="1"></stop>
-    </linearGradient>
-  </defs>
-</svg>
+
     <br>
-    <a th:href="@{/showNewJugadorForm}" class="btn btn-primary btn-sm mb-3">Agregar Jugador</a>
+   
     <br>
-    <div class="player-list">
-      <div th:each="jugador : ${listJugadores}" class="player-card">
+    <div>
+      <div class="card" th:each="jugador : ${listJugadores}">
         <h3 th:text="${jugador.firstName}"></h3>
+
         <p><strong>Pais:</strong> <span th:text="${jugador.nacionalidad}"></span></p>
         <p><strong>DNI Dotero:</strong> <span th:text="${jugador.dniDotero}"></span></p>
         <p><strong>Medalla:</strong> <span th:text="${jugador.medallaRank}"></span></p>
@@ -123,12 +230,13 @@
             th:text="${jugador.equipo?.puntosClasificacion}"></span></p>
         <p><strong>Nombre del Torneo:</strong> <span th:text="${jugador.torneo?.name}"></span></p>
         <p><strong>Premio del Torneo:</strong> <span th:text="${jugador.torneo?.premio}"></span></p>
-        <div class="actions">
-          <a class=" btn btn-primary btn-sm" th:href="@{/showFormForUpdateJugador/{id}(id=${jugador.id})}">Update</a>
-          <a class=" btn btn-danger btn-sm" th:href="@{/deleteJugador/{id}(id=${jugador.id})}">Delete</a>
+        <div>
+          <a href="/showFormForUpdateJugador/{id}(id=${jugador.id})" class="btn-primary">Update</a>
+          <a href="/deleteJugador/{id}(id=${jugador.id})" class="btn-secondary">Delete</a>
         </div>
       </div>
     </div>
+    <a href="/showNewJugadorForm" class=" button">Agregar Jugador</a>
   </div>
 </body>
 
