@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn clean install -f /main/pom.xml
+        run: mvn clean install -f dota2-project-java-web-app/main/pom.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
