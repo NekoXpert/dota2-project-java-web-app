@@ -121,8 +121,8 @@ input[type="file"] {
     <h3> Nuevo Jugador </h3>
 
     <form action="#" th:action="@{/saveJugador}" th:object="${jugador}" method="POST" enctype="multipart/form-data">
-      <input type="text" th:field="*{firstName}" placeholder="Nombre" class="form-control mb-4 col-4">
-      <input type="number" th:field="*{dniDotero}" placeholder="DNI Dotero" class="form-control mb-4 col-4">
+      <input type="text" th:field="*{firstName}" minlength="3" placeholder="Nombre" class="form-control mb-4 col-4" required>
+      <input type="number" th:field="*{dniDotero}" minlength="8"  placeholder="DNI Dotero" class="form-control mb-4 col-4" required>
       <select th:field="*{medallaRank}" class="form-control mb-4 col-4">
         <option value="">Selecciona tu Medalla</option>
         <option th:each="medalla : ${T(com.dota2.main.model.JugadorATTR.Medalla).values()}" th:value="${medalla}"
@@ -131,8 +131,8 @@ input[type="file"] {
       </select>
 
 
-      <input type="number" th:field="*{mmr}" placeholder="MMR" class="form-control mb-4 col-4">
-      <input type="number" th:field="*{edad}" placeholder="Edad" class="form-control mb-4 col-4">
+      <input type="number" th:field="*{mmr}" minlength="3"   placeholder="MMR" class="form-control mb-4 col-4" required>
+      <input type="number" th:field="*{edad}" maxlength="3"   placeholder="Edad" class="form-control mb-4 col-4" required>
       
 <select th:field="*{nacionalidad}" class="form-control mb-4 col-4">
   <option value="">Selecciona tu pais</option>
@@ -145,8 +145,8 @@ input[type="file"] {
 
 
 
-      <input type="number" th:field="*{telefono}" placeholder="Telefono" class="form-control mb-4 col-4">
-      <input type="text" th:field="*{correo}" placeholder="Correo" class="form-control mb-4 col-4">
+      <input type="tel" th:field="*{telefono}" placeholder="+51 900222331" pattern="^\+[0-9]{2}[0-9]{9}$" class="form-control mb-4 col-4" required>
+      <input type="email" th:field="*{correo}" placeholder="Correo" class="form-control mb-4 col-4" required>
 
       <label>Heroe:</label><br />
       <select class="form-control mb-4 col-4" th:field="*{heroe}">

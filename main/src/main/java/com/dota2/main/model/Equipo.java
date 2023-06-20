@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.persistence.CascadeType;
 
 import java.util.Date;
@@ -24,7 +25,7 @@ public class Equipo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+ 
     private String name;
     @Enumerated(EnumType.STRING)
     private Zona region;

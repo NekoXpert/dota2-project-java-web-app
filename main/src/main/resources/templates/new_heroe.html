@@ -120,7 +120,7 @@
     <h1>Nuevo Héroe</h1>
     <hr>
 <form action="#" th:action="@{/saveHeroe}" th:object="${heroe}" method="POST" enctype="multipart/form-data">
-  <input type="text" th:field="*{nameHero}" placeholder="Nombre del Heroe" class="form-control mb-4 col-4">
+  <input type="text" th:field="*{nameHero}" placeholder="Nombre del Heroe" class="form-control mb-4 col-4" required>
   
   
   

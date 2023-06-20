@@ -14,13 +14,14 @@ import java.util.Set;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Torneo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+ 
     private String name;
 
     private Integer premio;

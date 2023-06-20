@@ -11,57 +11,14 @@
 body {
   background-color: #181818;
   color: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
   margin: 0;
   padding: 0;
 }
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  text-align: center;
-}
-
-hr {
-  border-color: #ffffff;
-}
-
-/* Estilos de tabla */
-.table {
-  width: 100%;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-.table th {
-  background-color: #ff6600;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 10px;
-  text-align: left;
-}
-
-.table td {
-  background-color: #212121;
-  padding: 10px;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: #1d1d1d;
-}
-
-.table-striped tbody tr:nth-of-type(even) {
-  background-color: #212121;
-}
-
-/* Estilos de imagen */
 .hero-image {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 /* Estilos de botón */
@@ -103,61 +60,125 @@ hr {
   margin-bottom: 10px;
 }
 
-/* Estilos responsivos */
-@media screen and (max-width: 767px) {
-  .container {
-    padding: 10px;
-  }
 
-  .btn {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
+ .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .hero-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+        
+            background: linear-gradient(315deg, #fb5800 0%, #4d009a 74%) ;
+            box-shadow: 0 5 10px rgba(0, 0, 0, 0.587);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            
+        }
+ .hero-card:hover {
+            background-color: #ffffff;
+            box-shadow: 0 5 10px rgba(0, 0, 0, 0.587);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transform: (scale(1.5));
+        }
+        .hero-image img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+.btn{
+
+  background-color: #d94d00;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #ffffff;
+  margin-top: 2em;
+  transition: background-color 0.3s;
+
+
+
 }
+        .hero-details h2 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
 
+        .hero-actions {
+            margin-top: 10px;
+        }
+
+        .hero-actions a {
+            display: inline-block;
+            color: #d94d00;
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+          
+        }
+
+        .hero-actions a:hover {
+            background-color: #dcdcdc;
+            transform: (scaleX(1.5));
+          transition: background-color 0.3s;
+        }
+
+        .btn-secondary {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </style>
 <body>
-    <div class="container">
-        <h1>Lista de Héroes</h1>
-        <hr>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Rol</th>
-          <th>Atributo</th>
-          <th>Imagen</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="heroe : ${heroes}">
-          <td th:text="${heroe.id}"></td>
-          <td th:text="${heroe.nameHero}"></td>
-          <td th:text="${heroe.rolHeroe}"></td>
-          <td th:text="${heroe.atributoHeroe}"></td>
-          <td>
-            <img class="hero-image" th:src="@{'/upload/' + ${heroe.id} + '/' + ${heroe.imageUrl}}" alt="Hero Image" />
-          </td>
-          <td>
-            <a th:href="@{/showFormForUpdateHeroe/{id}(id=${heroe.id})}">Update</a>
-            |
-            <a th:href="@{/deleteHeroe/{id}(id=${heroe.id})}">Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container">
+    <h1>LISTA DE HEROES</h1>
+ 
 
-
-        <a th:href="@{/showNewHeroeForm}" class="btn btn-primary btn-sm mb-3"> Agregar Héroe</a>
-
-        <hr>
-
-        <a class="btn btn-secondary" th:href="@{/}">Regresar a la lista de Jugadores</a>
+    <div class="hero-list">
+      <div th:each="heroe : ${heroes}" class="hero-card">
+        <div class="hero-image">
+          <img th:src="@{'/upload/' + ${heroe.id} + '/' + ${heroe.imageUrl}}" alt="Hero Image" />
+        </div>
+        <div class="hero-details">
+          <h2 th:text="${heroe.nameHero}"></h2>
+          <p>Rol: <span th:text="${heroe.rolHeroe}"></span></p>
+          <p>Atributo: <span th:text="${heroe.atributoHeroe}"></span></p>
+        </div>
+        <div class="hero-actions">
+          <a th:href="@{/showFormForUpdateHeroe/{id}(id=${heroe.id})}">Update</a>
+          |
+          <a th:href="@{/deleteHeroe/{id}(id=${heroe.id})}">Delete</a>
+        </div>
+      </div>
     </div>
 
+    <a th:href="@{/showNewHeroeForm}" class="btn btn-primary btn-sm mb-3">Agregar Héroe</a>
+
+    <hr>
+
+    <a class="btn btn-secondary" th:href="@{/}">Regresar a la lista de Jugadores</a>
+  </div>
 </body>
+
 
 </html>

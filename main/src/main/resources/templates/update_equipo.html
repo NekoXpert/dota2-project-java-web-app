@@ -121,7 +121,7 @@
       <form th:object="${equipo}" th:action="@{/showFormForUpdateEquipo}" method="post" >
         <input type="hidden" th:field="*{id}">
         <label>Nombre:</label><br>
-        <input th:field="*{name}" class="form-control mb-4 col-4"><br>
+        <input th:field="*{name}" class="form-control mb-4 col-4" required><br>
        
 
   

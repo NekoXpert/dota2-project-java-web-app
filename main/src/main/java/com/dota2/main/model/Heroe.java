@@ -11,6 +11,7 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.persistence.JoinColumn;
 import org.springframework.web.multipart.MultipartFile;
 

@@ -119,9 +119,9 @@
 <h1>Actualizar Torneo</h1>
 <form th:object="${torneo}" th:action="@{/showFormForUpdateTorneo}" method="post" enctype="multipart/form-data">
   <input type="hidden" th:field="*{id}">
-<input type="text" th:field="*{name}" placeholder="Nombre del Torneo" class="form-control mb-4 col-4">
+<input type="text" th:field="*{name}" placeholder="Nombre del Torneo" class="form-control mb-4 col-4" required>
 
-<input type="number" th:field="*{premio}" placeholder="Premio" class="form-control mb-4 col-4">
+<input type="number" th:field="*{premio}" placeholder="Premio" class="form-control mb-4 col-4" required>
 <div>
   <label for="image">Imagen</label>
   <input type="file" name="image" id="image" />

@@ -118,11 +118,11 @@
 <body>
 <h1>Nuevo Torneo</h1>
 <form action="#" th:action="@{/saveTorneo}" th:object="${torneo}" method="POST" enctype="multipart/form-data">
-  <input type="text" th:field="*{name}" placeholder="Nombre del Torneo" class="form-control mb-4 col-4">
+  <input type="text" th:field="*{name}" placeholder="Nombre del Torneo" class="form-control mb-4 col-4" required>
 
 
   
- <input type="number" th:field="*{premio}" placeholder="Premio" class="form-control mb-4 col-4">
+ <input type="number" th:field="*{premio}" placeholder="Premio" class="form-control mb-4 col-4" required>
   <div>
     <label for="image">Imagen</label>
   <input type="file" name="image" id="image" />

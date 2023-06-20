@@ -121,7 +121,7 @@
     <hr>
     <form th:object="${heroe}" th:action="@{/showFormForUpdate}" method="post" enctype="multipart/form-data">
       <input type="hidden" th:field="*{id}">
-      <input type="text" th:field="*{nameHero}" placeholder="Nombre del Heroe" class="form-control mb-4 col-4">
+      <input type="text" th:field="*{nameHero}" placeholder="Nombre del Heroe" class="form-control mb-4 col-4" required>
       <select th:field="*{rolHeroe}" class="form-control mb-4 col-4">
         <option value="">Selecciona tu Rol</option>
         <option th:each="rol : ${T(com.dota2.main.model.heroeATTR.Rol).values()}" th:value="${rol}" th:text="${rol}">

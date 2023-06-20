@@ -12,10 +12,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-;
+import jakarta.persistence.JoinColumn;;
 
 @Entity
 @Table(name = "jugadores")
@@ -24,18 +23,24 @@ public class Jugador {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    
     @Column(name = "first_Name")
+
     private String firstName;
+    
     @Column(name = "dni_Dotero")
     private Integer dniDotero;
     @Enumerated(EnumType.STRING)
     private Medalla medallaRank;
+    
     private Integer mmr;
+    
     private Integer edad;
     @Enumerated(EnumType.STRING)
     private Pais nacionalidad;
+    
     private String telefono;
+    
     private String correo;
     private String imageUrl;
     @ManyToOne
@@ -90,7 +95,6 @@ public class Jugador {
         this.firstName = firstName;
     }
 
-
     public Integer getMmr() {
         return mmr;
     }
@@ -106,8 +110,6 @@ public class Jugador {
     public void setEdad(Integer edad) {
         this.edad = edad;
     }
-
-
 
     public String getTelefono() {
         return telefono;
@@ -133,8 +135,6 @@ public class Jugador {
         this.dniDotero = dniDotero;
     }
 
-  
-
     public Equipo getEquipo() {
         return equipo;
     }
@@ -159,25 +159,23 @@ public class Jugador {
         this.heroe = heroe;
     }
 
-  
-
-  @Override
-public String toString() {
-    return "Jugador{" +
-            "id=" + id +
-            ", firstName='" + firstName + '\'' +
-            ", dniDotero='" + dniDotero + '\'' +
-            ", medallaRank='" + medallaRank + '\'' +
-            ", mmr=" + mmr +
-            ", edad=" + edad +
-            ", nacionalidad='" + nacionalidad + '\'' +
-            ", telefono='" + telefono + '\'' +
-            ", correo='" + correo + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
-            ", equipo=" + (equipo != null ? equipo.getId() : null) +
-            ", torneo=" + (torneo != null ? torneo.getId() : null) +
-            ", heroe=" + (heroe != null ? heroe.getId() : null) +
-            '}';
-}
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", dniDotero='" + dniDotero + '\'' +
+                ", medallaRank='" + medallaRank + '\'' +
+                ", mmr=" + mmr +
+                ", edad=" + edad +
+                ", nacionalidad='" + nacionalidad + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", equipo=" + (equipo != null ? equipo.getId() : null) +
+                ", torneo=" + (torneo != null ? torneo.getId() : null) +
+                ", heroe=" + (heroe != null ? heroe.getId() : null) +
+                '}';
+    }
 
 }
