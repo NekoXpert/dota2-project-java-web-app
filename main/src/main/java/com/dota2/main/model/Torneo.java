@@ -7,14 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
-import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotEmpty;
+
 
 @Entity
 public class Torneo {

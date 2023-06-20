@@ -9,13 +9,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotEmpty;
+
 import jakarta.persistence.CascadeType;
 
-import java.util.Date;
+
 import java.util.List;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import com.dota2.main.model.EquipoATTR.DPC;
 import com.dota2.main.model.EquipoATTR.Zona;

@@ -1,20 +1,15 @@
 // Author: Felipe Reyes { Nekosor }
 package com.dota2.main.controller;
 
-import com.dota2.main.model.Equipo;
 import com.dota2.main.model.Heroe;
-import com.dota2.main.model.Jugador;
-import com.dota2.main.model.Torneo;
 import com.dota2.main.service.AlmacenamientoService;
 import com.dota2.main.service.HeroeService;
-
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

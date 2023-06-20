@@ -7,18 +7,18 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Transient;
-import jakarta.validation.constraints.NotEmpty;
+
+
 import jakarta.persistence.JoinColumn;
-import org.springframework.web.multipart.MultipartFile;
+
 
 import com.dota2.main.model.heroeATTR.Atributo;
 import com.dota2.main.model.heroeATTR.Rol;
 
-import java.io.IOException;
+
 import java.util.HashSet;
 import java.util.Set;
 

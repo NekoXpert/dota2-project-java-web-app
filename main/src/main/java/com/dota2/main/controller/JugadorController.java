@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.dota2.main.model.Heroe;
+
 import com.dota2.main.model.Jugador;
 import com.dota2.main.service.JugadorService;
 import com.dota2.main.service.AlmacenamientoService;
@@ -21,7 +21,7 @@ import com.dota2.main.service.EquipoService;
 import com.dota2.main.service.HeroeService;
 import com.dota2.main.service.TorneoService;
 
-import jakarta.validation.Valid;
+
 
 @Controller
 public class JugadorController {
@@ -64,7 +64,7 @@ public class JugadorController {
     }
 
     @PostMapping("/saveJugador")
-    public String saveJugador(@Valid @ModelAttribute Jugador jugador, @RequestParam("image") MultipartFile file, BindingResult result,
+    public String saveJugador( @ModelAttribute Jugador jugador, @RequestParam("image") MultipartFile file, BindingResult result,
             Model model) {
         if (!file.isEmpty()) {
             String imageUrl = almacenamientoService.store(file);
