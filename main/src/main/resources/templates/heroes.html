@@ -3,135 +3,120 @@
 
 <head>
     <title>Sistema de Registro para Torneos de Dota 2</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+    </head>
+<br> <br>
 <style>
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+ /* Estilos generales */
+body {
+  background-color: #181818;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #272727;
-    background-image: url("https://i.postimg.cc/tRLvpdM3/wallpaperflare-com-wallpaper-1.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  }
+h1, h2, h3 {
+  text-align: center;
+}
 
+hr {
+  border-color: #ffffff;
+}
+
+/* Estilos de tabla */
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.table th {
+  background-color: #ff6600;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+.table td {
+  background-color: #212121;
+  padding: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #1d1d1d;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #212121;
+}
+
+/* Estilos de imagen */
+.hero-image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+/* Estilos de botón */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background-color: #d94d00;
+}
+
+.btn-primary:hover {
+  background-color: #b13a00;
+}
+
+.btn-secondary {
+  background-color: #ff6600;
+}
+
+.btn-secondary:hover {
+  background-color: #d94d00;
+}
+
+/* Estilos adicionales */
+.mb-3 {
+  margin-bottom: 10px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-  }
-
-  h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(41, 41, 41, 0.1);
-    border-radius: 5px;
-  }
-
-  th,
-  td {
     padding: 10px;
-    text-align: center;
-  }
-
-  th {
-    background-color: #bde6ca;
-  }
-
-  td {
-    background-color: #ffffff;
   }
 
   .btn {
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: #ffffff;
-    color: #dd0b0b;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    margin-right: 10px;
-    padding: 5px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
   }
+}
 
-  button {
-    color: black;
-  }
-
-  .btn:hover {
-    background-color: #b3ffe5;
-    color: #202020;
-  }
-
-  a {
-    color: #272727;
-    text-decoration: none;
-    font-weight: 900;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-
-  a:hover {
-    color: #0f0f0f;
-    text-decoration: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 900;
-
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    table {
-      font-size: 14px;
-      display: block;
-      overflow-x: auto;
-    }
-
-    th,
-    td {
-      padding: 8px;
-      white-space: nowrap;
-    }
-
-    th {
-      background-color: #fff;
-    }
-
-    td:before {
-      content: attr(data-label);
-      display: block;
-      text-align: left;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-  }
 </style>
-    </head>
-<br> <br>
-
 <body>
     <div class="container">
         <h1>Lista de Héroes</h1>
@@ -173,15 +158,6 @@
         <a class="btn btn-secondary" th:href="@{/}">Regresar a la lista de Jugadores</a>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
