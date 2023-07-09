@@ -1,4 +1,4 @@
-package com.dota2.main.model.heroeATTR;
+package com.dota2.main.model.HeroeATTR;
 
 public enum Atributo {
     INTELIGENCIA,

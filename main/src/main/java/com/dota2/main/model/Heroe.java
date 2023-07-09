@@ -14,13 +14,11 @@ import jakarta.persistence.OneToOne;
 
 import jakarta.persistence.JoinColumn;
 
-
-import com.dota2.main.model.heroeATTR.Atributo;
-import com.dota2.main.model.heroeATTR.Rol;
-
-
 import java.util.HashSet;
 import java.util.Set;
+
+import com.dota2.main.model.HeroeATTR.Atributo;
+import com.dota2.main.model.HeroeATTR.Rol;
 
 @Entity
 public class Heroe {

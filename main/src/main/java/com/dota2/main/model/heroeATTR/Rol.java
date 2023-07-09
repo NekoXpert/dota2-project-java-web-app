@@ -1,6 +1,6 @@
-package com.dota2.main.model.heroeATTR;
+package com.dota2.main.model.HeroeATTR;
 
-public enum Rol {
+public enum Rol { 
     MID,
     OFFLANER,
     SAFELANE,
