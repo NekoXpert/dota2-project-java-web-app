@@ -10,7 +10,7 @@ EVA 3 VERSION 2.0
 <img src="/main/img-project/lista-heroes2.png" width="640" height="360">
 <img src="/main/img-project/lista-torneo2.png" width="640" height="360">
 <img src="/main/img-project/new-heroe2.png" width="640" height="360">
-<img src="/main/img-project/responsive.png" width="640" height="360">
+<img src="/main/img-project/responsive.png" width="480" height="850">
 <img src="/main/img-project/AZURE.jpeg" width="640" height="360">
 <img src="/main/img-project/GITHUB.jpeg" width="640" height="360">
 
